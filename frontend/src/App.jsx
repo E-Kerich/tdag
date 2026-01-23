@@ -17,6 +17,18 @@ import BlogPage from "./pages/public/Blog";
 import PortfolioPage from "./pages/public/Portfolio";
 import Income from "./pages/admin/income/Income";
 import BlogDetail from "./pages/public/BlogDetails";
+import Webdesign from "./pages/public/Webdesign";
+import AIDiscoveryForm from "./components/forms/AiForm";
+import AIDiscoveryAdmin from "./pages/admin/ai/AIForBus";
+import MyLibrary from "./pages/public/shop/Library";
+import Products from "./pages/admin/shop/Product";
+import ProductForm from "./pages/admin/shop/ProductForm";
+import Shop from "./pages/public/shop/Shop";
+import ProductDetail from "./pages/public/shop/ProductDetails";
+import Checkout from "./pages/public/shop/Checkout";
+import PaymentSuccess from "./pages/public/shop/PaymentSuccess";
+import PrivacyPolicy from "./pages/public/Policy";
+import TermsOfService from "./pages/public/Terms";
 
 
 function App() {
@@ -31,6 +43,17 @@ function App() {
         <Route path="/blog" element={<BlogPage />}/>
         <Route path="/blog/:slug" element={<BlogDetail />}/>
         <Route path="/portfolio" element={<PortfolioPage/>}/>
+        <Route path="/services/web-design" element={<Webdesign/>}/>
+        <Route path="ai-discovery" element={<AIDiscoveryForm/>}/>
+        <Route path="shop" element={<Shop />} />
+        <Route path="shop/:slug" element={<ProductDetail />} />
+        <Route path="my-library" element={<MyLibrary />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/checkout/payment-success" element={<PaymentSuccess />} />
+        <Route path="/privacy" element={<PrivacyPolicy/>}/>
+        <Route path="/terms" element={<TermsOfService/>}/>
+        
+      
         
 
         
@@ -59,6 +82,10 @@ function App() {
           <Route path="portfolio/new" element={<PortfolioForm />} />
           <Route path="portfolio/edit/:id" element={<PortfolioForm />} />
           <Route path="income" element={<Income/>}/>
+          <Route path="ai-discovery" element={<AIDiscoveryAdmin/>}/>
+          <Route path="products" element={<Products/>}/>
+          <Route path="shop/products/new" element={<ProductForm />} />
+          <Route path="shop/products/edit/:id" element={<ProductForm />} />
 
           <Route path="email" element={<Email/>}/>
         </Route>

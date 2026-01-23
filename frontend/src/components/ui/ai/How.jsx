@@ -5,8 +5,8 @@ const WhatWeDo = () => {
     {
       icon: Target,
       title: "AI Strategy & Use-Case Discovery",
-      description: "We help you identify where AI genuinely fits in your business — and where it doesn’t.",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
+      description: "We help you identify where AI genuinely fits in your business, and where it doesn’t.",
+      image: "/assets/ai.jpg",
       color: "emerald"
     },
     {
@@ -20,14 +20,14 @@ const WhatWeDo = () => {
       icon: Cpu,
       title: "Workflow Integration",
       description: "AI works best when embedded into systems you already use.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+      image: "/assets/workflow.jpg",
       color: "purple"
     },
     {
       icon: Users,
       title: "Team Orientation (Non-Technical)",
       description: "We help teams understand and adopt AI responsibly, without jargon or overwhelm.",
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop",
+      image: "/assets/team.jpg",
       color: "amber"
     }
   ];
@@ -75,7 +75,7 @@ const WhatWeDo = () => {
 
                 {/* Content */}
                 <div className="p-8">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-emerald-700 transition-colors duration-300">
+                  <h3 className="text-xl font-semiold text-gray-900 mb-4 group-hover:text-emerald-700 transition-colors duration-300">
                     {service.title}
                   </h3>
                   
@@ -105,7 +105,7 @@ const WhatWeDo = () => {
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
           <a
-            href="/contact"
+            href="/ai-discovery"
             className="inline-flex items-center gap-3 px-8 py-4 bg-emerald-500 text-white font-semibold text-lg rounded-xl hover:bg-emerald-600 hover:shadow-lg hover:scale-105 transition-all duration-300"
           >
             Start Your AI Journey

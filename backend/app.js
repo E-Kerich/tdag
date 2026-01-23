@@ -18,6 +18,22 @@ const portfolioAdminRoutes = require("./routes/admin/portfolio.routes");
 const portfolioPublicRoutes = require("./routes/public/portfolio.routes");
 const serviceRoutes = require("./routes/public/service.routes");
 const serviceInterestRoutes = require("./routes/admin/serviceInterest.routes");
+const aiDiscoveryPublicRoutes = require("./routes/public/aiDiscovery.routes");
+const aiDiscoveryAdminRoutes = require("./routes/admin/aiDiscovery.routes");
+const shopRoutes = require("./routes/public/shop.routes");
+const productAdminRoutes = require("./routes/admin/product.routes");
+const productPublicRoutes = require("./routes/public/product.routes");
+const deliveryRoutes = require("./routes/public/delivery.routes");
+const paymentRoutes = require("./routes/public/payment.routes");
+const projectRequestRoutes = require("./routes/public/projectRequest.routes");
+
+
+
+
+
+
+
+
 
 
 
@@ -58,10 +74,25 @@ app.use("/api/admin/subscribers", subscriberRoutes);
 
 
 
+
+
+
+
 app.use("/api/admin/portfolio", portfolioAdminRoutes);
 app.use("/api/portfolio", portfolioPublicRoutes);
 app.use("/api/service-request", serviceRoutes);
 app.use("/api/admin/services", serviceInterestRoutes);
+
+app.use("/api/ai-discovery", aiDiscoveryPublicRoutes);
+app.use("/api/admin/ai-discovery", aiDiscoveryAdminRoutes);
+
+app.use("/api/shop", shopRoutes);
+app.use("/api/admin/products", productAdminRoutes);
+app.use("/api/products", productPublicRoutes);
+app.use("/api/delivery", deliveryRoutes);
+app.use("/api/payments", paymentRoutes);
+app.use("/api/project-request", projectRequestRoutes);
+
 
 
 

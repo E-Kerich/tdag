@@ -8,6 +8,8 @@ const links = [
   { name: "Blogs", to: "/admin/blogs" },
   { name: "Portfolio", to: "/admin/portfolio" },
   { name: "Income", to: "/admin/income" },
+  {name: "AI Business", to: "/admin/ai-discovery"},
+  { name: "Digital Library", to: "/admin/products" },
   { name: "Email", to: "/admin/email" }
 ];
 

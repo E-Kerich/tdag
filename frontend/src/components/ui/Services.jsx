@@ -2,6 +2,8 @@ import { Code, Target, Cpu, BookOpen, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Services = () => {
+
+  
   const services = [
     {
       icon: Code,
@@ -9,7 +11,8 @@ const Services = () => {
       description: "We design and build digital systems, not just websites. From business websites and dashboards to internal tools and workflows, everything we build is designed to support real goals and long-term growth.",
       outcome: "Structure, clarity, and scalability.",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2070",
-      cta: "Build Your System"
+      cta: "Build Your System",
+      link: "/services/web-design"
     },
     {
       icon: Target,
@@ -17,15 +20,18 @@ const Services = () => {
       description: "Most digital problems are not execution problems, they're strategy problems. We help businesses move from scattered online activity to focused, intentional digital strategies that make sense and deliver results.",
       outcome: "Direction, consistency, and measurable progress.",
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070",
-      cta: "Plan Your Strategy"
+      cta: "Contact Us",
+      link: "/contact"
     },
     {
       icon: Cpu,
       title: "AI for Business (Practical, Not Technical)",
-      description: "AI shouldn't feel intimidating or experimental. We help organizations understand where AI actually fits — from automation and operations to decision-making and customer support — without needing technical expertise.",
+      description: "AI shouldn't feel intimidating or experimental. We help organizations understand where AI actually fits, from automation and operations to decision-making and customer support, without needing technical expertise.",
       outcome: "Efficiency, leverage, and smarter systems.",
       image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2070",
-      cta: "Explore AI Solutions"
+      cta: "Explore AI Solutions",
+      link: "/ai-business"
+
     },
     {
       icon: BookOpen,
@@ -33,7 +39,8 @@ const Services = () => {
       description: "Understanding the digital world is no longer optional. Through articles, guides, and learning resources, we help people understand how digital tools, platforms, and systems actually work, responsibly and confidently.",
       outcome: "Informed decisions, not blind adoption.",
       image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?q=80&w=2070",
-      cta: "Learn With Us"
+      cta: "Learn With Us",
+      link: "/shop"
     }
   ];
 
@@ -92,12 +99,13 @@ const Services = () => {
 
                   {/* CTA Button */}
                   <Link
-                    to="#"
-                    className="group/btn inline-flex align-center gap-2 px-6 py-3 underline text-emerald-400 font-medium hover:text-emerald-500 transition-colors "
-                  >
-                    {service.cta}
-                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                  </Link>
+                      to={service.link}
+                      className="inline-flex items-center gap-3 text-white font-light hover:scale-105 transition-all duration-300"
+                    >
+                      <ArrowRight className="w-4 h-4" />
+                      {service.cta}
+                    </Link>
+
                 </div>
 
                 {/* Hover effect overlay */}

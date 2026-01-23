@@ -112,7 +112,7 @@ const Contact = () => {
                 </div>
                 <div className="min-w-0">
                   <p className="text-xs sm:text-sm text-gray-500">Email</p>
-                  <p className="text-sm sm:text-base font-medium text-gray-900 truncate">contact@digitalagame.com</p>
+                  <p className="text-sm sm:text-base font-medium text-gray-900 truncate">info@thedigitalagame.org</p>
                 </div>
               </div>
 

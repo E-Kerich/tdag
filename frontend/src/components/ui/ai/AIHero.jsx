@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const AIHero = () => {
   return (
@@ -27,7 +28,7 @@ const AIHero = () => {
               </div>
 
               {/* Headline */}
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              <h1 className="text-4xl md:text-6xl font-semibold mb-6">
                 <span className="block text-white">Practical. Clear.</span>
                 <span className="block text-emerald-400 mt-2">& Useful.</span>
               </h1>
@@ -44,13 +45,13 @@ const AIHero = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="/book-ai-consultation"
+                <Link
+                  to="/ai-discovery"
                   className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-semibold text-lg rounded-xl hover:shadow-2xl hover:shadow-emerald-500/30 hover:scale-105 transition-all duration-300"
                 >
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                  Register Your Interest
-                </a>
+                  Start AI Discovery
+                </Link>
 
                 
               </div>

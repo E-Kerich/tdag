@@ -67,7 +67,7 @@ const Hero = () => {
 
               {/* Secondary CTA */}
               <a
-                href="/insights"
+                href="/blog"
                 className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/5 backdrop-blur-sm text-white font-semibold text-lg rounded-xl border border-white/20 hover:bg-white/10 hover:border-white/30 transition-all duration-300"
               >
                 <span>

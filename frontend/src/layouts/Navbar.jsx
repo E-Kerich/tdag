@@ -13,14 +13,15 @@ const Navbar = () => {
       label: "Services",
       href: "#",
       dropdown: [
-        { label: "Digital Systems & Web Development", href: "/services/web-development" },
-        { label: "Digital Strategy & Marketing", href: "/services/digital-strategy" },
-        { label: "AI for Business", href: "/services/ai-business" },
-        { label: "Digital Literacy & Insights", href: "/services/digital-literacy" },
+        { label: "Digital Systems & Web Development", href: "/services/web-design" },
+        { label: "Digital Strategy & Marketing", href: "/contact" },
+        { label: "AI for Business", href: "/ai-business" },
+        { label: "Digital Literacy & Insights", href: "/shop" },
       ]
     },
     { label: "Insights", href: "/blog" },
     { label: "AI for Business", href: "/ai-business" },
+    { label: "Digital Literacy", href: "/shop" },
     { label: "Portfolio", href: "/portfolio" },
   ];
 

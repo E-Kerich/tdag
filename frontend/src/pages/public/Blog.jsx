@@ -98,11 +98,11 @@ const BlogPage = () => {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="animate-pulse space-y-8">
-          <div className="h-8 bg-gray-200 rounded w-48 mb-2"></div>
-          <div className="h-4 bg-gray-200 rounded w-64"></div>
+          <div className="h-8 bg-gray-100 rounded w-48 mb-2"></div>
+          <div className="h-4 bg-gray-100 rounded w-64"></div>
           
           {/* Featured Blog Skeleton */}
-          <div className="bg-white rounded-2xl border overflow-hidden">
+          <div className="bg-white rounded-2xl overflow-hidden">
             <div className="h-64 bg-gray-200"></div>
             <div className="p-6 space-y-4">
               <div className="h-4 bg-gray-200 rounded w-32"></div>

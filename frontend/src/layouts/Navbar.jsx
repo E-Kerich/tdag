@@ -56,9 +56,10 @@ const Navbar = () => {
           {/* Logo with icon */}
           <div className="flex items-center gap-3">
             
-            <a href="/" className="text-xl font-bold bg-gradient-to-r from-gray-900 to-emerald-700 bg-clip-text text-transparent">
-              The Digital A-Game
-            </a>
+            <img 
+              src="/assets/log.png"
+              className="w-full h-12 md:h-15"
+            />
           </div>
 
           {/* Desktop Navigation */}

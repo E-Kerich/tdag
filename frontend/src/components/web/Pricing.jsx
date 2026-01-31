@@ -25,7 +25,8 @@ const Pricing = () => {
         "1-month post-launch support",
         "Basic analytics setup",
         "Content management system training",
-        "Free Domain & Hosting for 1 Year"
+        "Free Domain & Hosting for 1 Year",
+        "Up-to 2 Revisions"
       ],
       delivery: "2-3 weeks",
       popular: false,
@@ -33,7 +34,7 @@ const Pricing = () => {
     },
     {
       title: "Growth Business Website",
-      price: "KES 60,000",
+      price: "KES 80,000",
       description: "Ideal for growing businesses needing advanced functionality",
       features: [
         "Custom 7-10 page website with advanced layouts",
@@ -45,15 +46,17 @@ const Pricing = () => {
         "Performance optimization",
         "3 months post-launch support",
         "Google Analytics advanced setup",
-        "Basic e-commerce functionality"
+        "Basic e-commerce functionality",
+        "Free Domain & Hosting for 1 Year",
+        "Up-to 4 Revisions"
       ],
-      delivery: "4-5 weeks",
+      delivery: "3-5 weeks",
       popular: true,
       color: "border-emerald-500"
     },
     {
       title: "Custom Business Platform",
-      price: "From KES 95,000",
+      price: "From KES 150,000",
       description: "For businesses needing custom digital systems",
       features: [
         "Complete custom web application",
@@ -65,7 +68,9 @@ const Pricing = () => {
         "3-5 third-party integrations",
         "Advanced security features",
         "6 months post-launch support",
-        "Documentation & admin training"
+        "Documentation & admin training",
+        "Free Domain & Hosting for 1 Year",
+        "Unlimited Revisions"
       ],
       delivery: "6-8 weeks",
       popular: false,
@@ -75,7 +80,6 @@ const Pricing = () => {
 
   const ecommerce = {
     title: "E-Commerce Solution",
-    price: "From KES 150,000",
     description: "Professional online stores with full functionality",
     features: [
       "Custom e-commerce website (up to 50 products)",
@@ -87,7 +91,9 @@ const Pricing = () => {
       "Customer account management",
       "Shipping integration",
       "Tax calculation setup",
-      "4 months post-launch support"
+      "4 months post-launch support",
+      "Umlimited revions based on business needs",
+      "24/7 Customer Support"
     ],
     delivery: "3-6 weeks"
   };
@@ -211,7 +217,7 @@ const Pricing = () => {
         {/* E-Commerce */}
         <div className="mb-10">
           <h3 className="text-2xl font-semibold text-white mb-8">E-Commerce Solutions</h3>
-          <div className="bg-gradient-to-r from-gray-800/50 to-purple-900/20 backdrop-blur-sm rounded-2xl border border-gray-200/30 p-8">
+          <div className="bg-gradient-to-r from-gray-800/50 to-purple-900/20 backdrop-blur-sm rounded-2xl border border-gray-200/30 p-4">
             <div className="grid lg:grid-cols-2 gap-8">
               <div>
                 <h4 className="text-2xl font-light text-white mb-3">{ecommerce.title}</h4>
@@ -239,7 +245,19 @@ const Pricing = () => {
                   selectedPackage={selectedPackage}
                 />
 
+              <div className="mt-10 text-sm text-gray-400">
+                  <img 
+                    src="/assets/eco.jpg"
+                    alt="E-Commerce Illustration"
+                    className="mb-6 w-full h-auto rounded-lg shadow-lg"
+                  />
               </div>
+
+              </div>
+
+             
+                
+            
               
               <div>
                 <ul className="space-y-3">

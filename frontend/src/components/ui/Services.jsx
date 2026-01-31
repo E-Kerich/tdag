@@ -51,7 +51,7 @@ const Services = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 rounded-full border border-emerald-500/20 mb-6">
             
-            <span className="text-sm font-medium text-emerald-300">Core Pillars</span>
+            <span className="text-sm font-medium text-emerald-300">CORE PILLARS</span>
           </div>
           <h2 className="text-2xl md:text-5xl font-bold mb-6">
             <span className="text-white">What We </span>

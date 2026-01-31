@@ -150,7 +150,7 @@ const PortfolioPage = () => {
             <div className="h-4 bg-gray-200 rounded w-96 mb-12"></div>
             
             {/* Featured Project Skeleton */}
-            <div className="bg-white rounded-2xl border overflow-hidden">
+            <div className="bg-white rounded-2xl overflow-hidden">
               <div className="h-64 bg-gray-200"></div>
               <div className="p-8 space-y-4">
                 <div className="h-4 bg-gray-200 rounded w-32"></div>
@@ -161,7 +161,7 @@ const PortfolioPage = () => {
 
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {[1, 2, 3, 4, 5, 6].map(i => (
-                <div key={i} className="bg-white rounded-xl border p-6 space-y-3">
+                <div key={i} className="bg-white rounded-xl p-6 space-y-3">
                   <div className="h-48 bg-gray-200 rounded-lg"></div>
                   <div className="h-4 bg-gray-200 rounded w-24"></div>
                   <div className="h-5 bg-gray-200 rounded w-3/4"></div>
@@ -196,7 +196,7 @@ const PortfolioPage = () => {
             {/* Search & Filters */}
             <div className="max-w-2xl mx-auto mb-8">
               <div className="relative">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white" />
                 <input
                   type="text"
                   placeholder="Search projects by title, client, or technology..."
@@ -245,10 +245,10 @@ const PortfolioPage = () => {
             <p className="text-gray-600">An in-depth look at one of our most impactful projects</p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-xl border overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+          <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-shadow duration-300">
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Image */}
-              <div className="relative h-64 lg:h-full min-h-[400px]">
+              <div className="relative h-64 lg:h-full min-h-[200px]">
                 {featuredProject.thumbnail ? (
                   <img
                     src={featuredProject.thumbnail}
@@ -268,7 +268,7 @@ const PortfolioPage = () => {
               </div>
 
               {/* Content */}
-              <div className="p-8 lg:p-12">
+              <div className="p-4 lg:p-12">
                 <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
                   <div className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
@@ -310,19 +310,19 @@ const PortfolioPage = () => {
                 <div className="flex items-center gap-4">
                   <Link
                     to={`/portfolio/${featuredProject.slug}`}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-700 transition-colors group"
+                    className="inline-flex items-center gap-2 text-sm px-6 py-3 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-700 transition-colors group"
                   >
                     View Case Study
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-2 h-2 group-hover:translate-x-1 transition-transform" />
                   </Link>
                   {featuredProject.liveUrl && (
                     <a
                       href={featuredProject.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-3 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
+                      className="inline-flex items-center text-sm gap-2 px-4 py-3 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
                     >
-                      <ExternalLink className="w-4 h-4" />
+                      <ExternalLink className="w-2 h-2" />
                       Live Demo
                     </a>
                   )}

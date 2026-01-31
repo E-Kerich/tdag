@@ -39,7 +39,7 @@ const Process = () => {
         "We discuss how your business currently operates",
         "Identify friction points and inefficiencies",
         "Clarify what must work vs what is optional",
-        "Define what technology should solve — and what it shouldn't",
+        "Define what technology should solve, and what it shouldn't",
       ],
       outcome:
         "Clear problem definition, system-level solution direction, alignment on scope, priorities, and expectations",
@@ -394,7 +394,7 @@ const Process = () => {
                   <ul className="space-y-2">
                     {activeStepData.items.map((item, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 flex-shrink-0" />
+                        <CheckCircle className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
                         <span className="text-gray-700">{item}</span>
                       </li>
                     ))}

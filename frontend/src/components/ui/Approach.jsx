@@ -1,70 +1,117 @@
-import { Zap, Lightbulb, BarChart3, TargetIcon, CheckCircle } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 
 const Approach = () => {
   const principles = [
     {
-      icon: TargetIcon,
-      title: "Understand the problem first",
-      description: "We begin by deeply understanding your unique challenges before proposing any solutions."
+      icon: CheckCircle,
+      title: "Problem First",
+      description: "We start by understanding your unique challenges before designing solutions."
     },
     {
-      icon: Zap,
-      title: "Design systems around real workflows",
-      description: "We build digital systems that integrate seamlessly with how you actually work."
+      icon: CheckCircle,
+      title: "Workflow Native",
+      description: "Systems designed around how you actually work, not generic templates."
     },
     {
-      icon: Lightbulb,
-      title: "Apply technology where it creates value",
-      description: "We implement tech that solves real problems, not just what's trendy."
+      icon: CheckCircle,
+      title: "Purposeful Tech",
+      description: "Technology implemented only where it creates tangible value and solves real problems."
     },
     {
-      icon: BarChart3,
-      title: "Explain complex ideas simply",
-      description: "We break down complex concepts into practical, actionable steps you can understand."
+      icon: CheckCircle,
+      title: "Clarity Focused",
+      description: "Complex ideas translated into simple, actionable steps you can implement."
     }
   ];
 
   return (
-    <section className="py-5 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-10 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-50 text-emerald-700 rounded-full text-sm font-medium mb-6">
-            <CheckCircle className="w-4 h-4" />
-            OUR APPROACH
-          </div>
-          <p className="text-xl text-gray-600">
-            The Digital A-Game exists to bring clarity and structure to digital work.
-          </p>
-        </div>
-
-        {/* Principles Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {principles.map((principle, index) => {
-            const Icon = principle.icon;
-            return (
-              <div 
-                key={index}
-                className="group bg-white p-8 rounded-2xl border border-gray-200 hover:border-emerald-200 hover:shadow-xl transition-all duration-300"
-              >
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Icon className="w-7 h-7 text-emerald-600" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  {principle.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {principle.description}
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
+          {/* Left Column - Title */}
+          <div className="lg:w-2/5">
+            <div className="sticky top-20">
+              <div className="mb-8">
+                <div className="w-20 h-px bg-emerald-500 mb-4"></div>
+                <span className="text-sm font-medium text-emerald-600 uppercase tracking-wider">
+                  Our Approach
+                </span>
+              </div>
+              <h2 className="text-2xl md:text-5xl font-bold text-gray-900 mb-6">
+                How We Work
+              </h2>
+              <p className="text-gray-600 text-lg">
+                We believe in practical, intentional technology that serves your goals, not the other way around.
+              </p>
+              <div className="mt-8 pt-8 border-t border-gray-100">
+                <p className="text-sm text-gray-500">
+                  The Digital A-Game exists to bring clarity and structure to digital work.
                 </p>
               </div>
-            );
-          })}
-        </div>
 
+              <img 
+                src="/assets/team.jpg"
+                alt="Approach Illustration"
+                className="mt-10 w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
+          </div>
 
+          {/* Right Column - Principles */}
+          <div className="lg:w-3/5">
+            <div className="grid grid-cols-1 gap-8">
+              {principles.map((principle, index) => {
+                const Icon = principle.icon;
+                return (
+                  <div key={index} className="group">
+                    <div className="flex items-start gap-6">
+                      {/* Icon Container */}
+                      <div className="flex-shrink-0">
+                        <div className="relative">
+                          <div className="absolute -inset-4 bg-emerald-50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          <div className="relative w-14 h-14 rounded-lg bg-white border border-gray-200 group-hover:border-emerald-200 flex items-center justify-center transition-all duration-300">
+                            <Icon className="w-6 h-6 text-gray-700 group-hover:text-emerald-600 transition-colors" />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Content */}
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-2">
+                          <span className="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-1 rounded">
+                            {String(index + 1).padStart(2, '0')}
+                          </span>
+                          <h3 className="text-xl font-semibold text-gray-900">
+                            {principle.title}
+                          </h3>
+                        </div>
+                        <p className="text-gray-600 leading-relaxed">
+                          {principle.description}
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* Divider (except last) */}
+                    {index < principles.length - 1 && (
+                      <div className="mt-8 pt-8 border-t border-gray-100"></div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Summary */}
+            <div className="mt-12 p-6 bg-gray-50 rounded-xl border border-gray-200">
+              <p className="text-gray-700">
+                <span className="font-medium">Our promise:</span> We treat every project with the same commitment to clarity, practicality, and meaningful results.
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
   );
 };
 
 export default Approach;
+

@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Send, Mail, User, MessageSquare, CheckCircle, ArrowRight, Phone } from "lucide-react";
 import api from "../../services/api";
 
 const Contact = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [form, setForm] = useState({
     name: "",
     email: "",

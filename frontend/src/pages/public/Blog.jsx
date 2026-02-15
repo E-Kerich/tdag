@@ -188,7 +188,7 @@ const BlogPage = () => {
           <div className="bg-white rounded-2xl shadow-xl  overflow-hidden hover:shadow-2xl transition-shadow duration-300">
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Image */}
-              <div className="relative h-64 lg:h-full min-h-[400px]">
+              <div className="relative h-64 lg:h-full min-h-[250px]">
                 {featuredBlog.featuredImage ? (
                   <img
                     src={featuredBlog.featuredImage}

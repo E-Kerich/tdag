@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import { ChevronDown, Menu, X, Sparkles } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -8,21 +9,21 @@ const Navbar = () => {
   const servicesRef = useRef(null);
 
   const navItems = [
-    { label: "Home", href: "/" },
+    { label: "Home", to: "/" },
     {
       label: "Services",
-      href: "#",
+      to: "#",
       dropdown: [
-        { label: "Digital Systems & Web Development", href: "/services/web-design" },
-        { label: "Digital Strategy & Marketing", href: "/contact" },
-        { label: "AI for Business", href: "/ai-business" },
-        { label: "Digital Literacy & Insights", href: "/shop" },
+        { label: "Digital Systems & Web Development", to: "/services/web-design" },
+        { label: "Digital Strategy & Marketing", to: "/contact" },
+        { label: "AI for Business", to: "/ai-business" },
+        { label: "Digital Literacy & Insights", to: "/shop" },
       ]
     },
-    { label: "Insights", href: "/blog" },
-    { label: "AI for Business", href: "/ai-business" },
-    { label: "Digital Literacy", href: "/shop" },
-    { label: "Portfolio", href: "/portfolio" },
+    { label: "Insights", to: "/blog" },
+    { label: "AI for Business", to: "/ai-business" },
+    { label: "Digital Literacy", to: "/shop" },
+    { label: "Portfolio", to: "/portfolio" },
   ];
 
   // Scroll effect for navbar
@@ -55,11 +56,13 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo with icon */}
           <div className="flex items-center gap-3">
-            
-            <img 
-              src="/assets/log.png"
-              className="w-full h-12 md:h-15"
-            />
+            <Link to="/">
+              <img 
+                src="/assets/log.png"
+                className="w-full h-12 md:h-15"
+                alt="Digital A-Game Logo"
+              />
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -88,9 +91,9 @@ const Navbar = () => {
                           <p className="text-xs font-semibold text-emerald-600 uppercase tracking-wider">Our Services</p>
                         </div>
                         {item.dropdown.map((dropdownItem, index) => (
-                          <a
+                          <Link
                             key={dropdownItem.label}
-                            href={dropdownItem.href}
+                            to={dropdownItem.to}
                             className="group flex items-center px-4 py-3 hover:bg-emerald-50 transition-all duration-200"
                           >
                             <div className="flex-1">
@@ -101,21 +104,21 @@ const Navbar = () => {
                             <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                               <div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
                             </div>
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     )}
                   </div>
                 ) : (
-                  <a
-                    href={item.href}
+                  <Link
+                    to={item.to}
                     className="group relative px-4 py-2 text-sm font-medium text-gray-700 hover:text-emerald-600 transition-colors"
                   >
                     <span className="relative">
                       {item.label}
                       <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-500 group-hover:w-full transition-all duration-300"></span>
                     </span>
-                  </a>
+                  </Link>
                 )}
               </div>
             ))}
@@ -123,12 +126,12 @@ const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="px-6 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-medium text-sm rounded-lg hover:shadow-lg hover:shadow-emerald-500/25 hover:scale-105 transition-all duration-300"
             >
               Get Started
-            </a>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -168,39 +171,39 @@ const Navbar = () => {
                     {isServicesOpen && (
                       <div className="ml-4 pl-4 border-l border-gray-200 space-y-1">
                         {item.dropdown.map((dropdownItem) => (
-                          <a
+                          <Link
                             key={dropdownItem.label}
-                            href={dropdownItem.href}
+                            to={dropdownItem.to}
                             onClick={() => setIsMobileMenuOpen(false)}
                             className="block px-4 py-2.5 text-sm text-gray-600 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors"
                           >
                             {dropdownItem.label}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     )}
                   </div>
                 ) : (
-                  <a
-                    href={item.href}
+                  <Link
+                    to={item.to}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block px-4 py-3 rounded-lg text-base font-medium text-gray-900 hover:bg-emerald-50 hover:text-emerald-600 transition-colors"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 )}
               </div>
             ))}
             
             {/* Mobile CTA Button */}
             <div className="pt-4 px-4">
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="block w-full px-4 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-medium text-center rounded-lg hover:shadow-lg transition-all"
               >
                 Get Started
-              </a>
+              </Link>
             </div>
           </div>
         </div>

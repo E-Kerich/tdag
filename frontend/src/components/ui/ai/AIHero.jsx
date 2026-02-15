@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const AIHero = () => {
   return (
-    <section className="relative min-h-[80vh] flex items-center">
+    <section className="relative min-h-[60vh] flex items-center">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
       <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/95 to-gray-900/70 z-10"></div>
@@ -28,7 +28,7 @@ const AIHero = () => {
               </div>
 
               {/* Headline */}
-              <h1 className="text-4xl md:text-6xl font-semibold mb-6">
+              <h1 className="text-2xl md:text-6xl font-semibold mb-6">
                 <span className="block text-white">Practical. Clear.</span>
                 <span className="block text-emerald-400 mt-2">& Useful.</span>
               </h1>
@@ -47,7 +47,7 @@ const AIHero = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/ai-discovery"
-                  className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-semibold text-lg rounded-xl hover:shadow-2xl hover:shadow-emerald-500/30 hover:scale-105 transition-all duration-300"
+                  className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-light text-lg rounded-xl hover:shadow-2xl hover:shadow-emerald-500/30 hover:scale-105 transition-all duration-300"
                 >
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                   Start AI Discovery
@@ -69,7 +69,7 @@ const AIHero = () => {
                     <div className="absolute inset-0  flex items-center justify-center">
                       <div className="text-center">
                         <img 
-                            src="https://res.cloudinary.com/dz5crqyh2/image/upload/v1768911727/cartoon-ai-robot-scene_dcvkxe.jpg" 
+                            src="/assets/a2.jpg" 
                             alt="AI Visualization" 
                             className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
                         />

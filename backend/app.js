@@ -1,5 +1,7 @@
 const express = require('express');
 const cors = require('cors');
+const helmet = require("helmet");
+const rateLimit = require("express-rate-limit");
 const morgan = require('morgan');
 
 const authRoutes = require('./routes/admin/auth.routes');
@@ -55,6 +57,23 @@ const projectRequestRoutes = require("./routes/public/projectRequest.routes");
 
 const app = express();
 
+
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true
+  })
+);
+
+app.use(helmet());
+
+// Rate limiting (basic protection)
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 200
+});
+app.use(limiter);
+
 app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
@@ -92,6 +111,8 @@ app.use("/api/products", productPublicRoutes);
 app.use("/api/delivery", deliveryRoutes);
 app.use("/api/payments", paymentRoutes);
 app.use("/api/project-request", projectRequestRoutes);
+
+
 
 
 

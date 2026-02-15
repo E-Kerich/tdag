@@ -1,4 +1,4 @@
-import { Cpu, MessageSquare, Brain, BarChart3, ChevronLeft, ChevronRight, TicketCheck } from "lucide-react";
+import { Cpu, MessageSquare, Brain, BarChart3, ChevronLeft, ChevronRight, TicketCheck, CheckCheck } from "lucide-react";
 import { useState } from "react";
 
 const AIUseCases = () => {
@@ -179,7 +179,7 @@ const AIUseCases = () => {
                       <div className="space-y-2 mb-6">
                         {useCase.features.map((feature, idx) => (
                           <div key={idx} className="flex items-center gap-2">
-                            <div className={`w-1.5 h-1.5 rounded-full ${colors.dot}`}></div>
+                            <CheckCheck className={`w-4 h-4 ${colors.iconBg} text-white rounded-full p-1 flex-shrink-0`} />
                             <span className="text-sm text-gray-700">{feature}</span>
                           </div>
                         ))}

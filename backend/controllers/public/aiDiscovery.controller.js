@@ -1,4 +1,4 @@
-const AIDiscovery = require("../../models/AiDiscovery");
+const AIDiscovery = require("../../models/AIDiscovery");
 const sendEmail = require("../../utils/resend");
 
 // POST /api/ai-discovery

@@ -3,7 +3,7 @@ const router = express.Router();
 const {
   getAllRequests,
   updateStatus
-} = require("../../controllers/admin/aiDiscovery.controller");
+} = require("../../controllers/admin/AIDiscovery.controller");
 const { protect } = require("../../middleware/auth.middleware");
 
 router.use(protect);

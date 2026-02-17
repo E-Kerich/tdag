@@ -38,7 +38,7 @@ const Hero = () => {
             {/* Sub-headline with delay */}
             <div className="overflow-hidden">
               <div className="animate-slideUp opacity-0" style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }}>
-                <p className="text-xl text-gray-400 leading-relaxed max-w-lg">
+                <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-lg">
                   Clarity, systems, and practical technology for businesses navigating the modern digital world.
                 </p>
               </div>
@@ -47,8 +47,8 @@ const Hero = () => {
             {/* Support line with delay */}
             <div className="overflow-hidden">
               <div className="animate-slideUp opacity-0" style={{ animationDelay: '0.7s', animationFillMode: 'forwards' }}>
-                <div className="pl-6 border-l border-emerald-500/30">
-                  <p className="text-gray-300 text-lg italic">
+                <div className="pl-3 border-l border-emerald-500/30">
+                  <p className="text-gray-300 text-sm md:text-lg italic">
                     We help businesses stop guessing, stop wasting tools, and start building digital systems that actually work.
                   </p>
                 </div>
@@ -87,7 +87,7 @@ const Hero = () => {
                       <div className="absolute inset-0 flex items-center justify-center">
                         <iframe
                           className="w-full h-full rounded-xl"
-                          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                          src="https://res.cloudinary.com/dz5crqyh2/video/upload/v1771263549/Digital_A-Game_Brand_Intro_jsomxr.mp4"
                           title="Introductory Video"
                           frameBorder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

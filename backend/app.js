@@ -1,8 +1,9 @@
 const express = require('express');
-const cors = require('cors');
+
+const cors = require("cors");
 const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
-const morgan = require('morgan');
+const morgan = require("morgan");
 
 const authRoutes = require('./routes/admin/auth.routes');
 const leadAdminRoutes = require('./routes/admin/lead.routes');
@@ -28,6 +29,10 @@ const productPublicRoutes = require("./routes/public/product.routes");
 const deliveryRoutes = require("./routes/public/delivery.routes");
 const paymentRoutes = require("./routes/public/payment.routes");
 const projectRequestRoutes = require("./routes/public/projectRequest.routes");
+const webDiscoveryPublic = require("./routes/public/webDiscovery.routes");
+const webDiscoveryAdmin = require("./routes/admin/webDiscovery.routes");
+
+
 
 
 
@@ -58,13 +63,6 @@ const projectRequestRoutes = require("./routes/public/projectRequest.routes");
 const app = express();
 
 
-app.use(
-  cors({
-    origin: process.env.FRONTEND_URL,
-    credentials: true
-  })
-);
-
 app.use(helmet());
 
 // Rate limiting (basic protection)
@@ -73,6 +71,17 @@ const limiter = rateLimit({
   max: 200
 });
 app.use(limiter);
+
+/* ---------------- CORS ---------------- */
+
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true
+  })
+);
+
+
 
 app.use(cors());
 app.use(express.json());
@@ -90,6 +99,9 @@ app.use('/api/subscribe', subscribeRoutes);
 app.use('/api/admin/email', emailRoutes);
 app.use("/api/admin/income", incomeRoutes);
 app.use("/api/admin/subscribers", subscriberRoutes);
+
+app.use("/api/discovery", webDiscoveryPublic);
+app.use("/api/admin/web-discovery", webDiscoveryAdmin);
 
 
 

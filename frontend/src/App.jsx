@@ -29,6 +29,9 @@ import Checkout from "./pages/public/shop/Checkout";
 import PaymentSuccess from "./pages/public/shop/PaymentSuccess";
 import PrivacyPolicy from "./pages/public/Policy";
 import TermsOfService from "./pages/public/Terms";
+import DiscoveryDetail from "./pages/admin/ai/DiscovryDetails";
+import WebDiscoveryList from "./pages/admin/ai/WebDiscovery";
+import WebDiscovery from "./pages/public/Web";
 
 
 function App() {
@@ -52,6 +55,7 @@ function App() {
         <Route path="/checkout/payment-success" element={<PaymentSuccess />} />
         <Route path="/privacy" element={<PrivacyPolicy/>}/>
         <Route path="/terms" element={<TermsOfService/>}/>
+        <Route path="/website-discovery" element={<WebDiscovery/>}/>
         
       
         
@@ -88,6 +92,9 @@ function App() {
           <Route path="shop/products/edit/:id" element={<ProductForm />} />
 
           <Route path="email" element={<Email/>}/>
+          <Route path="web-discovery" element={<WebDiscoveryList />} />
+          <Route path="web-discovery/:id" element={<DiscoveryDetail />} />
+
         </Route>
       </Routes>
     </BrowserRouter>

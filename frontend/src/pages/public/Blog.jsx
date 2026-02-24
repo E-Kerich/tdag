@@ -184,7 +184,7 @@ const BlogPage = () => {
 
       {/* Featured Blog */}
       {featuredBlog && (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 relative z-10">
           <div className="bg-white rounded-2xl shadow-xl  overflow-hidden hover:shadow-2xl transition-shadow duration-300">
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Image */}

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const servicesRef = useRef(null);
@@ -35,7 +36,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close dropdown when clicking outside
+  // Close desktop dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (servicesRef.current && !servicesRef.current.contains(event.target)) {
@@ -44,6 +45,18 @@ const Navbar = () => {
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Close mobile menu when clicking outside or resizing to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsMobileMenuOpen(false);
+        setIsMobileServicesOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
@@ -84,9 +97,9 @@ const Navbar = () => {
                       }`} />
                     </button>
 
-                    {/* Services Dropdown */}
+                    {/* Desktop Services Dropdown */}
                     {isServicesOpen && (
-                      <div className="absolute left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 z-50 animate-in fade-in slide-in-from-top-5 duration-200">
+                      <div className="absolute left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 z-50">
                         <div className="px-4 py-3 border-b border-gray-100">
                           <p className="text-xs font-semibold text-emerald-600 uppercase tracking-wider">Our Services</p>
                         </div>
@@ -95,6 +108,9 @@ const Navbar = () => {
                             key={dropdownItem.label}
                             to={dropdownItem.to}
                             className="group flex items-center px-4 py-3 hover:bg-emerald-50 transition-all duration-200"
+                            onClick={() => {
+                              setIsServicesOpen(false);
+                            }}
                           >
                             <div className="flex-1">
                               <p className="text-sm font-medium text-gray-900 group-hover:text-emerald-700">
@@ -137,7 +153,10 @@ const Navbar = () => {
           {/* Mobile menu button */}
           <div className="lg:hidden">
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={() => {
+                setIsMobileMenuOpen(!isMobileMenuOpen);
+                setIsMobileServicesOpen(false); // Close mobile services when closing menu
+              }}
               className="p-2.5 rounded-lg bg-gray-50 hover:bg-gray-100 text-gray-700 transition-colors"
             >
               {isMobileMenuOpen ? (
@@ -150,32 +169,38 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile menu - Glass morphism effect */}
+      {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-lg border-t border-gray-100 shadow-2xl animate-in slide-in-from-top duration-300">
-          <div className="px-4 py-6 space-y-1">
+        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t border-gray-100 shadow-xl max-h-[80vh] overflow-y-auto">
+          <div className="px-4 py-4 space-y-1">
             {navItems.map((item) => (
               <div key={item.label}>
                 {item.dropdown ? (
                   <div className="space-y-1">
                     <button
-                      onClick={() => setIsServicesOpen(!isServicesOpen)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setIsMobileServicesOpen(!isMobileServicesOpen);
+                      }}
                       className="flex items-center justify-between w-full px-4 py-3 rounded-lg text-base font-medium text-gray-900 hover:bg-emerald-50 hover:text-emerald-600 transition-colors"
                     >
                       <span>{item.label}</span>
                       <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${
-                        isServicesOpen ? "rotate-180 text-emerald-600" : ""
+                        isMobileServicesOpen ? "rotate-180 text-emerald-600" : "text-gray-400"
                       }`} />
                     </button>
                     
-                    {isServicesOpen && (
-                      <div className="ml-4 pl-4 border-l border-gray-200 space-y-1">
+                    {isMobileServicesOpen && (
+                      <div className="ml-4 pl-4 border-l-2 border-emerald-200 space-y-1">
                         {item.dropdown.map((dropdownItem) => (
                           <Link
                             key={dropdownItem.label}
                             to={dropdownItem.to}
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="block px-4 py-2.5 text-sm text-gray-600 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors"
+                            onClick={() => {
+                              setIsMobileMenuOpen(false);
+                              setIsMobileServicesOpen(false);
+                            }}
+                            className="block px-4 py-3 text-sm text-gray-600 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors"
                           >
                             {dropdownItem.label}
                           </Link>
@@ -199,7 +224,10 @@ const Navbar = () => {
             <div className="pt-4 px-4">
               <Link
                 to="/contact"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsMobileServicesOpen(false);
+                }}
                 className="block w-full px-4 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-medium text-center rounded-lg hover:shadow-lg transition-all"
               >
                 Get Started

@@ -11,7 +11,9 @@ import {
   AlertCircle,
   CheckCircle,
   Send,
-  StepForwardIcon
+  StepForwardIcon,
+  Home,
+  Loader2
 } from "lucide-react";
 import api from "../../services/api";
 
@@ -20,6 +22,8 @@ const AIDiscoveryForm = () => {
         window.scrollTo(0, 0)
     }, [])
   const [step, setStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     // Step 1
     businessName: "",
@@ -159,10 +163,22 @@ const AIDiscoveryForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await api.post("/ai-discovery", formData);
-    alert("Your request has been submitted. We'll be in touch shortly.");
+    setIsSubmitting(true);
+    
+    try {
+      await api.post("/ai-discovery", formData);
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert("There was an error submitting your request. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   
+  const handleReturnHome = () => {
+    window.location.href = "/";
+  };
 
   const isStepValid = () => {
     switch(step) {
@@ -191,6 +207,44 @@ const AIDiscoveryForm = () => {
   };
 
   const StepIcon = getStepIcon(step);
+
+  // Thank You Message
+  if (isSubmitted) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12">
+        <div className="max-w-md mx-auto px-4 text-center">
+          <div className="bg-white rounded-2xl border border-gray-200 p-8 shadow-lg">
+            <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <CheckCircle className="w-10 h-10 text-emerald-600" />
+            </div>
+            
+            <h1 className="text-2xl font-bold text-gray-900 mb-3">
+              Thank You!
+            </h1>
+            
+            <p className="text-gray-600 mb-6">
+              Your AI Discovery Session request has been successfully submitted. 
+              We'll review your information and be in touch shortly to schedule your session.
+            </p>
+            
+            <div className="bg-emerald-50 border border-emerald-100 rounded-lg p-4 mb-6">
+              <p className="text-sm text-emerald-800">
+                <span className="font-semibold">Next steps:</span> You'll receive a confirmation email within 24 hours with available time slots for your session.
+              </p>
+            </div>
+            
+            <button
+              onClick={handleReturnHome}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors"
+            >
+              <Home className="w-5 h-5" />
+              Return to Home
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
@@ -781,13 +835,22 @@ const AIDiscoveryForm = () => {
             ) : (
               <button
                 type="submit"
-                disabled={!isStepValid()}
-                className={`ml-auto flex items-center gap-2 px-8 py-3 font-medium rounded-lg transition-colors ${isStepValid() 
+                disabled={!isStepValid() || isSubmitting}
+                className={`ml-auto flex items-center gap-2 px-8 py-3 font-medium rounded-lg transition-colors ${isStepValid() && !isSubmitting
                   ? 'bg-gray-900 text-white hover:bg-gray-800' 
                   : 'bg-gray-200 text-gray-500 cursor-not-allowed'}`}
               >
-                <Send className="w-5 h-5" />
-                Proceed to AI Discovery Session
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    Submitting...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5" />
+                    Proceed to AI Discovery Session
+                  </>
+                )}
               </button>
             )}
           </div>

@@ -74,16 +74,17 @@ app.use(limiter);
 
 /* ---------------- CORS ---------------- */
 
-app.use(
-  cors({
-    origin: process.env.FRONTEND_URL,
-    credentials: true
-  })
-);
+app.use(cors({
+  origin: [
+    "https://thedigitalagame.com",
+    "https://www.thedigitalagame.com",
+    "http://thedigitalagame.com",
+    "www.thedigitalagame.com",
+    "http://localhost:5173",   
+  ],
+  credentials: true
+}));
 
-
-
-app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
 

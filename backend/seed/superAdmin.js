@@ -1,34 +1,40 @@
-require('dotenv').config();
-const mongoose = require('mongoose');
-const User = require('../models/User');
-const connectDB = require('../config/db');
+require("dotenv").config();
+const User = require("../models/User");
+const connectDB = require("../config/db");
 
-const seedSuperAdmin = async () => {
+const seedAdmin = async () => {
   try {
     await connectDB();
 
-    const exists = await User.findOne({
-      email: process.env.SUPER_ADMIN_EMAIL
-    });
+    const email = process.env.ADMIN_EMAIL || process.argv[2];
+    const password = process.env.ADMIN_PASSWORD || process.argv[3];
+
+    if (!email || !password) {
+      console.log("❌ Provide email & password in .env or command line");
+      process.exit(1);
+    }
+
+    const exists = await User.findOne({ email });
 
     if (exists) {
-      console.log('⚠️ Super Admin already exists');
+      console.log("⚠️ Admin already exists:", email);
       process.exit();
     }
 
+    // ❌ NO hashing here
     const user = await User.create({
-      name: 'Super Admin',
-      email: process.env.SUPER_ADMIN_EMAIL,
-      password: process.env.SUPER_ADMIN_PASSWORD,
-      role: 'superadmin'
+      name: "Admin",
+      email,
+      password, // model will hash automatically
+      role: "superadmin",
     });
 
-    console.log('✅ Super Admin created:', user.email);
+    console.log("✅ Admin created:", user.email);
     process.exit();
   } catch (error) {
-    console.error('❌ Failed to create Super Admin', error);
+    console.error("❌ Failed to create admin:", error);
     process.exit(1);
   }
 };
 
-seedSuperAdmin();
+seedAdmin();

@@ -248,7 +248,7 @@ const PortfolioPage = () => {
           <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-shadow duration-300">
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Image */}
-              <div className="relative h-64 lg:h-full min-h-[200px]">
+              <div className="relative h-64 lg:h-full min-h-[100px]">
                 {featuredProject.thumbnail ? (
                   <img
                     src={featuredProject.thumbnail}
@@ -289,7 +289,7 @@ const PortfolioPage = () => {
                   )}
                 </div>
 
-                <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
                   {featuredProject.title}
                 </h2>
 

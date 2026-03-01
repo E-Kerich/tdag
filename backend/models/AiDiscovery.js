@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const aiDiscoverySchema = new mongoose.Schema(
+const AIDiscoverySchema = new mongoose.Schema(
   {
     businessName: String,
     email: String,
@@ -42,4 +42,4 @@ const aiDiscoverySchema = new mongoose.Schema(
 
 module.exports =
   mongoose.models.AIDiscovery ||
-  mongoose.model("AIDiscovery", aiDiscoverySchema);
+  mongoose.model("AIDiscovery", AIDiscoverySchema);

@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const {
   submitAIDiscovery
-} = require("../../controllers/public/AIDiscovery.controller");
+} = require("../../controllers/public/publicaidiscovery.controller");
 
 router.post("/", submitAIDiscovery);
 

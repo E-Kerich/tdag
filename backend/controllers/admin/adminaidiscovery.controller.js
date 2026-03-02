@@ -1,4 +1,4 @@
-const AIDiscovery = require("../../models/AIDiscovery");
+const AIDiscovery = require("../../models/AiDiscovery");
 
 // GET /api/admin/ai-discovery
 exports.getAllRequests = async (req, res) => {
